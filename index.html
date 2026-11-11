@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kabras Sugarcane Monitoring Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head><body>
+<h1>Kabras Sugarcane Monitoring Dashboard</h1>
+<div class="controls">
+  <label>Year <select id="year"></select></label>
+  <label>Units <input type="radio" name="units" value="fields" checked> Fields
+                <input type="radio" name="units" value="ha"> Hectares</label>
+</div>
+<nav><button data-tab="ov" class="on">Overview</button><button data-tab="map">Map explorer</button><button data-tab="ah">Age &amp; health</button></nav>
+
+<section id="ov" class="tab on">
+  <div class="kpis" id="kpis"></div>
+  <div class="row"><div class="card f1" id="ov_donut"></div><div class="card f2" id="ov_bar"></div></div>
+  <div class="card" id="ov_line"></div>
+</section>
+
+<section id="map" class="tab">
+  <div class="controls">
+    <fieldset><legend>Layers (choose any)</legend><div id="m_types"></div></fieldset>
+    <fieldset><legend>Years (choose any)</legend><div id="m_years"></div></fieldset>
+    <label>Basemap <select id="basemap"><option>Light</option><option>Streets</option><option>Satellite</option></select></label>
+    <label>Opacity <input id="opacity" type="range" min="0.2" max="1" step="0.1" value="0.8"></label>
+  </div>
+  <div id="legend"></div>
+  <div class="row"><div class="card f3"><div id="lmap"></div></div>
+  <div class="card f1"><h4>Field details</h4><div id="detail">Click a field on the map.</div></div></div>
+</section>
+
+<section id="ah" class="tab">
+  <div class="row"><div class="card f1" id="ag_donut"></div><div class="card f2" id="ag_bar"></div></div>
+  <div class="row"><div class="card f1" id="hl_donut"></div><div class="card f2" id="hl_bar"></div></div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<script src="app.js"></script>
+</body></html>
